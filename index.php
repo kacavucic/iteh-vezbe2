@@ -9,7 +9,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $upass = $_POST['password'];
 
 
-    $korisnik = new User(null, $uname, $upass);
+    $korisnik = new User(1, $uname, $upass);
     // $odg = $korisnik->loginUser($uname, $upass, $conn);
     $odg = User::loginUser($korisnik, $conn); // posto smo login metodu definisali kao staticku moze i ovako
 
