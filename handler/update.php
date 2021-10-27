@@ -1,0 +1,5 @@
+<?php
+
+// kreirati  update funkciju
+
+?> 
