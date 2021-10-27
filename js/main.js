@@ -30,6 +30,30 @@ $('#dodajForm').submit(function() {
         console.error("Sledeca greska se desila: " + textStatus, errorThrown);
     });
 
-
-
 })
+
+$('#btn-obrisi').click(function() {
+    console.log("Brisanje");
+
+    const checked = $('input[name=checked-donut]:checked');
+
+    request = $.ajax({
+        url: 'handler/delete.php',
+        type: 'post',
+        data: { 'id': checked.val() }
+    });
+
+    request.done(function(response, textStatus, jqXHR) {
+        if (response == "Success") {
+            checked.closest('tr').remove();
+            alert('Obrisan kolokvijum');
+            console.log('Obrisan');
+        } else {
+            console.log("Kolokvijum nije obrisan " + response);
+            alert("Kolokvijum nije obrisan ");
+
+        }
+        console.log(response);
+    });
+
+});
